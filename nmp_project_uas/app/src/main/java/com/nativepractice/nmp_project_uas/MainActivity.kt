@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fragments.add(HomeFragment())
+        fragments.add(CreateFirstFragment())
 
         binding.viewPager.adapter = MyAdapter(this,fragments)
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemHome ->0
                 //lanjutan fragment lain
                 //R.id.itemFollowing -> 1
-                //R.id.itemCreate -> 2
+                R.id.itemCreate -> 1
                 else -> 0
             }
             true
