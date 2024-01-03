@@ -26,7 +26,7 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>):RecyclerView.Adapter<Cerbu
 
         with(holder.binding){
             txtTitle.text= cerbungs[position].judul
-            txtAuthor.text=cerbungs[position].user_id.toString()
+            txtAuthor.text=cerbungs[position].username
             txtDescription.text=cerbungs[position].description
 
         }

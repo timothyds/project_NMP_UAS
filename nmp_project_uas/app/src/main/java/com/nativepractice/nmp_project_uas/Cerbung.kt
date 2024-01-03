@@ -6,4 +6,5 @@ data class Cerbung( val id:Int,
                     val num_likes:Int,
                     val user_id:Int,
                     val image_url:String,
-                    val genre_id:Int)
+                    val genre_id:Int,
+                    val username:String)
