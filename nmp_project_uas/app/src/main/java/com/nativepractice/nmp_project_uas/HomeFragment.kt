@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         var q = Volley.newRequestQueue(activity)
-        var url = "https://ubaya.me/native/160421144/get_cerbung.php"
+        var url = "https://ubaya.me/native/160421144/cerbung/get_cerbung.php"
         val stringRequest = StringRequest(
             Request.Method.POST,
             url,
