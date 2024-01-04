@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nativepractice.nmp_project_uas.databinding.CardCerbungsBinding
 import com.nativepractice.nmp_project_uas.databinding.CardReadCerbungsBinding
 
-class ParagrafAdapter (val paragrafs:ArrayList<Paragraf>, val id:Int): RecyclerView.Adapter<ParagrafAdapter.ParagrafViewHolder>(){
+class ParagrafAdapter (val paragrafs:ArrayList<Paragraf>, val context: Context): RecyclerView.Adapter<ParagrafAdapter.ParagrafViewHolder>(){
 
     class ParagrafViewHolder(val binding: CardReadCerbungsBinding):RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(

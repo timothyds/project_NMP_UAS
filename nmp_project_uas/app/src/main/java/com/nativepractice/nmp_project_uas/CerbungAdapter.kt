@@ -31,6 +31,8 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>, val context: Context):Recy
         with(holder.binding){
             txtTitle.text= cerbungs[position].judul
             txtAuthor.text=cerbungs[position].username
+            txtParagrafRead.text=cerbungs[position].description
+            txtLike.text=cerbungs[position].num_likes.toString()
 //            txtDescription.text=cerbungs[position].description
 
             buttonRead.setOnClickListener{
@@ -54,6 +56,8 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>, val context: Context):Recy
 //                val loc = CerbungReadFragment()
 //                loc.arguments = detail
 //                activity.supportFragmentManager.beginTransaction().replace(com.google.android.material.R.id.container,loc).addToBackStack(null).commit()
+                activity.supportFragmentManager.beginTransaction().replace(R.id.container,loc).addToBackStack(null).commit()
+
             }
         }
     }

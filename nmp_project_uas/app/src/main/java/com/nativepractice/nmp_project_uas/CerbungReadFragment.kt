@@ -15,12 +15,13 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.nativepractice.nmp_project_uas.databinding.FragmentCerbungReadBinding
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
 
 class CerbungReadFragment : Fragment() {
-
+    private lateinit var binding: FragmentCerbungReadBinding
     private var cerbungs:Cerbung? = null
     private lateinit var recycler: RecyclerView
     var paragrafs:ArrayList<Paragraf> = ArrayList()
@@ -50,7 +51,6 @@ class CerbungReadFragment : Fragment() {
         Picasso.get().load(image_url_detail).into(urlView)
         view.findViewById<TextView>(R.id.txtGenre).text = genre_id_detail
         view.findViewById<TextView>(R.id.txtAuthor).text = username_detail
-        paragrafs.clear()
 
         var q = Volley.newRequestQueue(activity)
         var url = "https://ubaya.me/native/160421144/cerbung/read_cerbung.php?idcerbung="+id_detail
@@ -80,9 +80,12 @@ class CerbungReadFragment : Fragment() {
 
     fun updateList(){
         val lm = LinearLayoutManager(activity)
-        recycler.layoutManager = lm
-        recycler.setHasFixedSize(true)
-        recycler.adapter = ParagrafAdapter(paragrafs,id)
+        with(binding.ReadRecyclerView){
+            recycler.layoutManager = lm
+            recycler.setHasFixedSize(true)
+            recycler.adapter = ParagrafAdapter(paragrafs,this.context)
+        }
+
     }
 
     companion object {

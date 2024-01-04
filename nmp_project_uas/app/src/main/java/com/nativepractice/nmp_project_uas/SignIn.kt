@@ -27,7 +27,7 @@ class SignIn : AppCompatActivity() {
         setContentView(view)
 
         val t = Volley.newRequestQueue(this@SignIn)
-        val url = "https://ubaya.me/native/160421125/users.php"
+        val url = "https://ubaya.me/native/160421144/cerbung/users.php"
         var stringRequest = StringRequest(
             Request.Method.POST, url,
             Response.Listener<String> {
