@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.versionedparcelable.ParcelField
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -19,6 +20,7 @@ import com.nativepractice.nmp_project_uas.databinding.FragmentCerbungReadBinding
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
+private const val ARG_EVENT="cerbungs"
 
 class CerbungReadFragment : Fragment() {
     private lateinit var binding: FragmentCerbungReadBinding
@@ -28,7 +30,9 @@ class CerbungReadFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        arguments?.let{
+            cerbungs = it.getParcelable(ARG_EVENT)
+        }
     }
 
     override fun onCreateView(
@@ -83,7 +87,7 @@ class CerbungReadFragment : Fragment() {
         with(binding.ReadRecyclerView){
             recycler.layoutManager = lm
             recycler.setHasFixedSize(true)
-            recycler.adapter = ParagrafAdapter(paragrafs,this.context)
+            recycler.adapter = ParagrafAdapter(paragrafs)
         }
 
     }
