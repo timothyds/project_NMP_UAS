@@ -53,7 +53,7 @@ class CerbungReadFragment : Fragment() {
         paragrafs.clear()
 
         var q = Volley.newRequestQueue(activity)
-        var url = "https://ubaya.me/native/160421144/cerbung/read_cerbung.php?idCerbung"+id_detail
+        var url = "https://ubaya.me/native/160421144/cerbung/read_cerbung.php?idcerbung="+id_detail
         val stringRequest = StringRequest(
             Request.Method.POST,
             url,

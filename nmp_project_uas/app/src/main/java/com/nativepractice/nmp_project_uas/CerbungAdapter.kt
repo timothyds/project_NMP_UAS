@@ -47,7 +47,13 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>, val context: Context):Recy
 
                 val loc = CerbungReadFragment()
                 loc.arguments = detail
-                activity.supportFragmentManager.beginTransaction().replace(com.google.android.material.R.id.container,loc).addToBackStack(null).commit()
+                activity.supportFragmentManager.beginTransaction()
+                    .replace(com.google.android.material.R.id.container, loc)
+                    .addToBackStack(null)
+                    .commit()
+//                val loc = CerbungReadFragment()
+//                loc.arguments = detail
+//                activity.supportFragmentManager.beginTransaction().replace(com.google.android.material.R.id.container,loc).addToBackStack(null).commit()
             }
         }
     }
