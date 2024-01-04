@@ -31,7 +31,7 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>, val context: Context):Recy
         with(holder.binding){
             txtTitle.text= cerbungs[position].judul
             txtAuthor.text=cerbungs[position].username
-            txtDescription.text=cerbungs[position].description
+//            txtDescription.text=cerbungs[position].description
 
             buttonRead.setOnClickListener{
                 val activity : AppCompatActivity = context as AppCompatActivity
