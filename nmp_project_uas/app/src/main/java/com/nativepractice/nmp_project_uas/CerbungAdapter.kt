@@ -45,8 +45,8 @@ class CerbungAdapter(val cerbungs:ArrayList<Cerbung>, val context: Context):Recy
                 detail.putString("user_id_cerbung",cerbungs[position].user_id.toString())
                 detail.putString("image_url_cerbung",cerbungs[position].image_url)
                 detail.putString("genre_id_cerbung",cerbungs[position].genre_id.toString())
+                detail.putString("paragraf_cerbung",cerbungs[position].paragraf)
                 detail.putString("username_cerbung",cerbungs[position].username)
-
                 val loc = CerbungReadFragment()
                 loc.arguments = detail
                 activity.supportFragmentManager.beginTransaction().replace(R.id.container,loc).addToBackStack(null).commit()

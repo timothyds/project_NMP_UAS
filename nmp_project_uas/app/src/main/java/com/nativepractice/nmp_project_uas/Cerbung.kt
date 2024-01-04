@@ -11,6 +11,7 @@ data class Cerbung( val id:Int,
                     val user_id:Int,
                     val image_url:String,
                     val genre_id:Int,
+                    val paragraf:String,
                     val username:String):Parcelable{
 
                     }

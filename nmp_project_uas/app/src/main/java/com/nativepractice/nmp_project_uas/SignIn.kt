@@ -17,8 +17,10 @@ import org.json.JSONObject
 class SignIn : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     val account:ArrayList<Account> = ArrayList()
+    companion object{
+        val IDACCOUNT = ""
+    }
 
-    val IDACCOUNT = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

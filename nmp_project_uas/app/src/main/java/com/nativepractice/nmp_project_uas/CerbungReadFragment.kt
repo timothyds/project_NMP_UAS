@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.versionedparcelable.ParcelField
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -49,12 +48,13 @@ class CerbungReadFragment : Fragment() {
         val image_url_detail = arguments?.getString("image_url_cerbung").toString()
         val genre_id_detail = arguments?.getString("genre_id_cerbung").toString()
         val username_detail = arguments?.getString("username_cerbung").toString()
-
+        val paragraf_detail = arguments?.getString("paragraf_cerbung").toString()
         view.findViewById<TextView>(R.id.txtTitle).text = judul_detail
         val urlView: ImageView = view.findViewById(R.id.imgCerbung)
         Picasso.get().load(image_url_detail).into(urlView)
         view.findViewById<TextView>(R.id.txtGenre).text = genre_id_detail
         view.findViewById<TextView>(R.id.txtAuthor).text = username_detail
+        view.findViewById<TextView>(R.id.txtParagrafRead).text = paragraf_detail
 
         var q = Volley.newRequestQueue(activity)
         var url = "https://ubaya.me/native/160421144/cerbung/read_cerbung.php?idcerbung="+id_detail
