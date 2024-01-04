@@ -60,9 +60,15 @@ class HomeFragment : Fragment() {
     }
 
     fun updateList(){
-        binding.homeRecyclerView.layoutManager = LinearLayoutManager(activity)
-        binding.homeRecyclerView.setHasFixedSize(true)
-        binding.homeRecyclerView.adapter = CerbungAdapter(cerbungs)
+        val lm = LinearLayoutManager(activity)
+        with(binding.homeRecyclerView){
+            layoutManager = lm
+            setHasFixedSize(true)
+            adapter = CerbungAdapter(cerbungs,this.context)
+        }
+//        binding.homeRecyclerView.layoutManager = LinearLayoutManager(activity)
+//        binding.homeRecyclerView.setHasFixedSize(true)
+//        binding.homeRecyclerView.adapter = CerbungAdapter(cerbungs,this.context)
     }
     companion object {
         @JvmStatic
