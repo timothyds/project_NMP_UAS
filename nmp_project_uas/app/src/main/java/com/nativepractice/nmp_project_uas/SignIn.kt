@@ -41,6 +41,7 @@ class SignIn : AppCompatActivity() {
                             plyObj.getInt("id"),
                             plyObj.getString("nama"),
                             plyObj.getString("username"),
+                            plyObj.getString("img_url"),
                             plyObj.getString("password")
                         )
                         account.add(users)

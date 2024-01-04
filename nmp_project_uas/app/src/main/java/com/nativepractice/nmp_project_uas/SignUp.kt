@@ -39,7 +39,8 @@ class SignUp : AppCompatActivity() {
                             plyObj.getInt("id"),
                             plyObj.getString("nama"),
                             plyObj.getString("username"),
-                            plyObj.getString("password"),
+                            plyObj.getString("img_url"),
+                            plyObj.getString("password")
 
                             )
                         account.add(users)
@@ -55,13 +56,15 @@ class SignUp : AppCompatActivity() {
         t.add(stringRequest)
 
         binding.btnSignUp.setOnClickListener {
+            var name = binding.txtNama.text.toString()
             var username = binding.txtUsername.text.toString()
+            var image = binding.txtUrl.text.toString()
             var password = binding.txtPassword.text.toString()
             var repassword = binding.txtRePassword.text.toString()
             var sameUser = false
 
             for (accounts in account) {
-                if (accounts.username == username) {
+                if (accounts.username == username || accounts.nama == name) {
                     sameUser = true
                     break
                 }
@@ -69,27 +72,35 @@ class SignUp : AppCompatActivity() {
             if (sameUser) {
                 Toast.makeText(this, "Username Telah digunakan", Toast.LENGTH_SHORT).show()
             } else {
-                if (!username.isEmpty() && !password.isEmpty() && !repassword.isEmpty()) {
+                if (!name.isEmpty() && !username.isEmpty() && !image.isEmpty() && !password.isEmpty() && !repassword.isEmpty()) {
                     if (password == repassword) {
                         val t = Volley.newRequestQueue(this@SignUp)
                         val url = "https://ubaya.me/native/160421125/new_users.php"
                         val stringRequest = object : StringRequest(Request.Method.POST, url,
                             Response.Listener<String> {
                                 Log.d("cekparams", it)
-                                Toast.makeText(this, "${username} Sign Up Success", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, SignIn::class.java)
-                                startActivity(intent)
-                           }, Response.ErrorListener {
+                                val obj = JSONObject(it)
+                            },
+                            Response.ErrorListener {
                             // Handle error here
-                            Log.e("cekparams", it.message.toString()) }) {
+                            Log.e("cekparams", it.message.toString())
+                            })
+                        {
                             override fun getParams(): MutableMap<String, String> {
                                 val params = HashMap<String, String>()
-                                params["name"]= username
+                                params["nama"] = name
+                                params["username"]= username
+                                params["img_url"] = image
                                 params["password"] = password
-                                return  params
-                            }
+                                return params
                             }
                         }
+                        t.add(stringRequest)
+                        Toast.makeText(this, "${username} Sign Up Success", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, SignIn::class.java)
+                        startActivity(intent)
+
+                    }
 
                     }
                 }
